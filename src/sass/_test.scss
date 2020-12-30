@@ -19,6 +19,11 @@
   @include offset(1/2);
 }
 
+// This should extend .col-3of4 because it will assume 9/12.
+.col-9 {
+  @include column(9);
+}
+
 // This is not how the mixins are intended to be used, but it illustrates some of the magic going on.
 .col-right {
   @extend %column-0-5;

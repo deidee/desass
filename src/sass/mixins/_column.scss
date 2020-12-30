@@ -1,19 +1,43 @@
 
+// Define an empty list in the global scope.
+// TODO: Consider moving this to the mixin.
+// TODO: Consider namespacing it.
 $columns: ();
+// Set a default column count to be used when working with integers.
+// TODO: Consider moving this to _variables.
+// TODO: Consider namespacing it.
+// TODO: Consider *not* namespacing it, for compatibility with frameworks like Bootstrap.
+// TODO: Consider introducing a mapping from a non-namespaced to a namespaced version.
+$column-count: 12 !default;
 
+// Define the mixin.
+// Usage: `selector { @include column(1/2); }`
+// TODO: Consider introducing an optional denominator. For inspiration, see Grid.sexy.
 @mixin column($math) {
+  // If value is greater than one, behave more like Bootstrap columns (where col-3 means width 25% by default).
+  @if $math > 1 {
+    $math: 1 / $column-count * $math;
+  }
+
+  // Turn the maths into a string so we can use it for variable names.
   $key: str-replace(#{$math}, '.', '-');
 
+  // Check if the key we just made is *not* listed.
   @if not (map-has-key($columns, $key)) {
+    // List the key, but do so in the global scope.
     $columns: map-merge($columns, (
             $key: $key
     )) !global;
 
+    // Create a placeholder selector in the global scope, so we can extend it.
     @at-root %column-#{$key} {
       flex: 0 0 auto;
       width: percentage($math);
     }
   }
 
+  // Extend the placeholder selector.
   @extend %column-#{$key};
+
+  // Profit!
 }
