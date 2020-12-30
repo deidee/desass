@@ -29,8 +29,18 @@
   @include column();
 }
 
+// This should extend .col-1of2, because it should be interpreted as 1/2.
+.col-half {
+  @include column(1, 2);
+}
+
 // This is not how the mixins are intended to be used, but it illustrates some of the magic going on.
 .col-right {
   @extend %column-0-5;
   @extend %offset-0-5;
+}
+
+// Using a fraction for the numerator? Crazy talk, but go ahead.
+.col-silly {
+  @include column(1/2, 2 * 2);
 }
