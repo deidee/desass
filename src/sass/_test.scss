@@ -6,7 +6,7 @@
 
 // This should not create a new rule; instead it should extend .col-1o2, which we just created.
 .col-2of4 {
-  @include column(1/2);
+  @include column(2/4);
 }
 
 // This should create a new rule.

@@ -8,7 +8,7 @@
 }
 
 .col-2of4 {
-  @include column(1/2);
+  @include column(2/4);
 }
 
 .col-3of4 {
