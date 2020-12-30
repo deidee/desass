@@ -1,0 +1,15 @@
+
+// This should create a new rule.
+.col-1of2 {
+  @include magiccolumn(1/2);
+}
+
+// This should not create a new rule; instead it should extend .col-1o2, which we just created.
+.col-2of4 {
+  @include magiccolumn(1/2);
+}
+
+// This should create a new rule.
+.col-3of4 {
+  @include magiccolumn(3/4);
+}

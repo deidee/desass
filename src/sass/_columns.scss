@@ -1,0 +1,19 @@
+
+$columns: ();
+
+@mixin magiccolumn($math, $columns: $columns) {
+  $hundo: str-replace(#{$math}, '.', '-');
+
+  @if not (map-has-key($columns, $hundo)) {
+    $columns: map-merge($columns, (
+            $hundo: $hundo
+    )) !global;
+
+    @at-root %column-#{$hundo} {
+      flex: 0 0 auto;
+      width: percentage($math);
+    }
+  }
+
+  @extend %column-#{$hundo};
+}
