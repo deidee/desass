@@ -1,7 +1,7 @@
 
 $columns: ();
 
-@mixin magiccolumn($math, $columns: $columns) {
+@mixin column($math, $columns: $columns) {
   $hundo: str-replace(#{$math}, '.', '-');
 
   @if not (map-has-key($columns, $hundo)) {
