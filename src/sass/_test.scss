@@ -24,6 +24,11 @@
   @include column(9);
 }
 
+// This should create a new rule, and should be 100 wide.
+.col {
+  @include column();
+}
+
 // This is not how the mixins are intended to be used, but it illustrates some of the magic going on.
 .col-right {
   @extend %column-0-5;
