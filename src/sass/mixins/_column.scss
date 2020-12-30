@@ -14,15 +14,15 @@ $column-count: 12 !default;
 // Usage: `selector { @include column(1/2); }`
 // TODO: Consider introducing an optional denominator. For inspiration, see Grid.sexy.
 // TODO: Consider making width:auto the default, rather than width:100%.
-@mixin column($numerator: 1) {
+@mixin column($math: 1) {
   // If value is greater than one, behave more like Bootstrap columns (where col-3 means width 25% by default).
-  @if $numerator > 1 {
+  @if $math > 1 {
     // Apply some more maths to make it work with the rest of the mixin.
-    $math: 1 / $column-count * $numerator;
+    $math: 1 / $column-count * $math;
   }
 
   // Turn the maths into a string so we can use it for variable names.
-  $key: str-replace(#{$numerator}, '.', '-');
+  $key: str-replace(#{$math}, '.', '-');
 
   // Check if the key we just made is *not* listed.
   @if not (map-has-key($columns, $key)) {
@@ -34,7 +34,7 @@ $column-count: 12 !default;
     // Create a placeholder selector in the global scope, so we can extend it.
     @at-root %column-#{$key} {
       flex: 0 0 auto;
-      width: percentage($numerator);
+      width: percentage($math);
     }
   }
 
