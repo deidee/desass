@@ -16,6 +16,7 @@ $column-count: 12 !default;
 @mixin column($math) {
   // If value is greater than one, behave more like Bootstrap columns (where col-3 means width 25% by default).
   @if $math > 1 {
+    // Apply some more maths to make it work with the rest of the mixin.
     $math: 1 / $column-count * $math;
   }
 
