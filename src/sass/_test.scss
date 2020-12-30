@@ -13,3 +13,14 @@
 .col-3of4 {
   @include column(3/4);
 }
+
+// This should create a new rule.
+.offset-1of2 {
+  @include offset(1/2);
+}
+
+// This is not how the mixins are intended to be used, but it illustrates some of the magic going on.
+.col-right {
+  @extend %column-0-5;
+  @extend %offset-0-5;
+}

@@ -1,0 +1,18 @@
+
+$offsets: ();
+
+@mixin offset($math) {
+  $key: str-replace(#{$math}, '.', '-');
+
+  @if not (map-has-key($offsets, $key)) {
+    $columns: map-merge($offsets, (
+            $key: $key
+    )) !global;
+
+    @at-root %offset-#{$key} {
+      margin-left: percentage($math);
+    }
+  }
+
+  @extend %offset-#{$key};
+}
