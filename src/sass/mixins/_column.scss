@@ -33,7 +33,7 @@ $column-count: 12 !default;
   // Check if the key we just made is *not* listed.
   @if not (map-has-key($de-columns, $key)) {
     // List the key, but do so in the global scope.
-    $columns: map-merge($de-columns, (
+    $de-columns: map-merge($de-columns, (
             $key: $key
     )) !global;
     // (Actually, we created a new list, and assigned it to the same variable, because Sass lists are immutable.)
