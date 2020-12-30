@@ -44,3 +44,21 @@
 .col-silly {
   @include column(1/2, 2 * 2);
 }
+
+// Well, we need something to put the columns in.
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  outline: 1px solid blue;
+
+  > * {
+    background: transparentize(red, .75);
+    box-sizing: border-box;
+    outline: 1px dotted red;
+    padding: 16px;
+
+    &::before {
+      content: attr(class);
+    }
+  }
+}

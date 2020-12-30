@@ -11,20 +11,19 @@ $column-count: 12 !default;
 
 // Define the mixin.
 // Usage: `selector { @include column(1/2); }`
-// TODO: Consider making width:auto the default, rather than width:100%.
-@mixin column($numerator: 1, $denominator: false) {
+@mixin column($numerator: false, $denominator: false) {
   // Off the bat, assume we will use the first value for everything. Check other things afterwards.
   $math: $numerator;
 
   // If the first value is greater than one, behave more like Bootstrap columns (where col-3 means width 25% by default).
   // However, we need a denominator for that. If none has been set explicitly, use the column count.
-  @if $numerator > 1 and $denominator == false {
+  @if $math != false and $math > 1 and $denominator == false {
     $denominator: $column-count;
   }
 
   // If a denominator has been set (either when calling the mixin, or in the logic above), make it a fraction.
   @if $denominator != false {
-    $math: $numerator / $denominator;
+    $math: $math / $denominator;
   }
 
   // Turn the maths into a string so we can use it for variable names.
@@ -40,10 +39,16 @@ $column-count: 12 !default;
 
     // Create a placeholder selector in the global scope, so we can extend it.
     @at-root %column-#{$key} {
-      // Now write the actual CSS rules.
-      flex: 0 0 auto;
-      // Turn whatever we have into a percentage.
-      width: percentage($math);
+      // If the numerator was not explicitly set, create an auto-width column in Bootstrap 5 fashion.
+      @if $numerator == false {
+        flex: 1 0 0%;
+        width: 100%;
+      } @else {
+        // Reset flex.
+        flex: 0 0 auto;
+        // If the numerator *was* set, set the width to whatever was calculated.
+        width: percentage($math);
+      }
     }
   }
 
