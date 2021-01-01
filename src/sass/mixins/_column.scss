@@ -2,12 +2,6 @@
 // Define an empty list in the global scope.
 // TODO: Consider moving this to the mixin.
 $de-columns: ();
-// Set a default column count to be used when working with integers.
-// TODO: Consider moving this to _variables.
-// TODO: Consider namespacing it.
-// TODO: Consider *not* namespacing it, for compatibility with frameworks like Bootstrap.
-// TODO: Consider introducing a mapping from a non-namespaced to a namespaced version.
-$column-count: 12 !default;
 
 // Define the mixin.
 // Usage: `selector { @include column(1/2); }`
@@ -17,6 +11,7 @@ $column-count: 12 !default;
 
   // If the first value is greater than one, behave more like Bootstrap columns (where col-3 means width 25% by default).
   // However, we need a denominator for that. If none has been set explicitly, use the column count.
+  // TODO: Consider what to do when the value is exactly one. Should it be 100% (1/1) or 8.333% (1/12)?
   @if $math != false and $math > 1 and $denominator == false {
     $denominator: $column-count;
   }

@@ -45,6 +45,16 @@
   @include column(1/2, 2 * 2);
 }
 
+// This should offset the element by 50%.
+.offset-1of2 {
+  @include offset(1/2);
+}
+
+// This should offset the element by minus 100%.
+.noffset-1of2 {
+  @include offset(-1);
+}
+
 // Well, we need something to put the columns in.
 .row {
   display: flex;

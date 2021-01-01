@@ -1,0 +1,6 @@
+
+// Set a default column count to be used when working with integers.
+// TODO: Consider namespacing it.
+// TODO: Consider *not* namespacing it, for compatibility with frameworks like Bootstrap.
+// TODO: Consider introducing a mapping from a non-namespaced to a namespaced version.
+$column-count: 12 !default;
