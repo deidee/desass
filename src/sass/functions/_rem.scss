@@ -4,5 +4,5 @@
     $size: $size * 1px;
   }
 
-  @return $size / 16 * 1rem;
+  @return $size / 16px * 1rem;
 }

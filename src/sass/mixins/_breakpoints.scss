@@ -1,0 +1,17 @@
+
+// Inspired by earlier work, but also basically the same as Bootstrap 5.
+// Just the proper way to do this, I guess.
+// TODO: Consider removing the -up part, because we want to avoid a -down mixin anyway.
+// (We don't necessarily believe mobile-first *design* is always the way to go,
+// but mobile-first CSS is definitely a good idea.)
+@mixin breakpoint-up($name, $breakpoints: $de-breakpoints) {
+  $min: map-get($breakpoints, $name);
+
+  @if map-get($breakpoints, $name) {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

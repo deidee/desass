@@ -34,7 +34,8 @@
   @include column(1, 2);
 }
 
-// This is not how the mixins are intended to be used, but it illustrates some of the magic going on.
+// This is not how the mixins are intended to be used (the IDE also doesn't like it),
+// but it illustrates some of the magic going on.
 .col-right {
   @extend %column-0-5;
   @extend %offset-0-5;
@@ -57,8 +58,7 @@
 
 // Well, we need something to put the columns in.
 .row {
-  display: flex;
-  flex-wrap: wrap;
+  @extend %row;
   outline: 1px solid blue;
 
   > * {
@@ -72,3 +72,22 @@
     }
   }
 }
+
+.break-1 {
+  color: lime;
+}
+
+.break-2 {
+  background: red;
+
+  @include breakpoint-up(l) {
+    background: lime;
+  }
+}
+
+.break-3 {
+  @include breakpoint-up(l) {
+    background: lime;
+  }
+}
+

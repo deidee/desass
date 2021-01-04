@@ -4,3 +4,14 @@
 // TODO: Consider *not* namespacing it, for compatibility with frameworks like Bootstrap.
 // TODO: Consider introducing a mapping from a non-namespaced to a namespaced version.
 $column-count: 12 !default;
+
+// Inspiration: https://medium.com/free-code-camp/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862.
+$de-breakpoints: (
+        xs: 0, // Zero is preferably unitless. Also happens to typecast to null/false nicely ("it's not a bug, it's a feature").
+        s: 300px,
+        m: 600px,
+        l: 900px,
+        xl: 1200px,
+        xxl: 1500px,
+        3xl: 1800px
+);
