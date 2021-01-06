@@ -1,0 +1,4 @@
+
+@function implode($list, $separator: comma) {
+  @return join($list, (), $separator);
+}

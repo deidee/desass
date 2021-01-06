@@ -91,3 +91,6 @@
   }
 }
 
+.list {
+  transition-property: implode(background-color color transform);
+}
