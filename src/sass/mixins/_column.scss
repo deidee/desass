@@ -1,3 +1,4 @@
+@use "sass:math";
 
 // Define an empty list in the global scope.
 // TODO: Consider moving this to the mixin.
@@ -18,7 +19,7 @@ $de-columns: ();
 
   // If a denominator has been set (either when calling the mixin, or in the logic above), make it a fraction.
   @if $denominator != false {
-    $math: $math / $denominator;
+    $math: math.div($math, $denominator);
   }
 
   // Turn the maths into a string so we can use it for variable names.

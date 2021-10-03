@@ -1,22 +1,23 @@
+@use "sass:math";
 
 // This should create a new rule.
 .col-1of2 {
-  @include column(1/2);
+  @include column(math.div(1, 2));
 }
 
 // This should not create a new rule; instead it should extend .col-1o2, which we just created.
 .col-2of4 {
-  @include column(2/4);
+  @include column(math.div(2, 4));
 }
 
 // This should create a new rule.
 .col-3of4 {
-  @include column(3/4);
+  @include column(math.div(3, 4));
 }
 
 // This should create a new rule.
 .offset-1of2 {
-  @include offset(1/2);
+  @include offset(math.div(1, 2));
 }
 
 // This should extend .col-3of4 because it will assume 9/12.
@@ -43,12 +44,12 @@
 
 // Using a fraction for the numerator? Crazy talk, but go ahead.
 .col-silly {
-  @include column(1/2, 2 * 2);
+  @include column(math.div(1, 2), 2 * 2);
 }
 
 // This should offset the element by 50%.
 .offset-1of2 {
-  @include offset(1/2);
+  @include offset(math.div(1, 2));
 }
 
 // This should offset the element by minus 100%.
