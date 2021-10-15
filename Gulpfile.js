@@ -15,3 +15,9 @@ gulp.task('sass', function () {
 gulp.task('sass:watch', function () {
     gulp.watch('./src/sass/**/*.scss', gulp.series('sass'));
 });
+
+gulp.task('sass-test', function () {
+    return gulp.src('./test/sass/**/*.scss')
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(gulp.dest('./test/css'));
+});
