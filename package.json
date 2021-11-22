@@ -1,7 +1,7 @@
 {
   "name": "@deidee/desass",
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Sass helper functions and mixins.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
