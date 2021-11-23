@@ -1,0 +1,18 @@
+// Based off https://github.com/bbc/color-contrast-checker/blob/master/src/color-contrast-checker.js.
+
+@use "sass:math";
+
+@function get-color-contrast-ratio($foreground-color: #000, $background-color: #fff) {
+  $foreground-luminance: get-color-luminance($foreground-color);
+  $background-luminance: get-color-luminance($background-color);
+  // First we assume the background is lightest. If not, we change it later.
+  $lightest: $background-luminance;
+  $darkest: $foreground-luminance;
+
+  @if $foreground-luminance >= $background-luminance {
+    $lightest: $foreground-luminance;
+    $darkest: $background-luminance;
+  }
+
+  @return math.div(($lightest + 0.05), ($darkest + 0.05));
+}

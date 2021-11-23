@@ -95,3 +95,9 @@
 .list {
   transition-property: implode(background-color color transform);
 }
+
+@debug get-color-luminance(#2269ca);
+@debug get-color-contrast-ratio(#2269ca, white);
+@debug get-color-contrast-ratio(#2269ca, black);
+@debug get-color-contrast-ratio(#2269ca, blue);
+
