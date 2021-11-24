@@ -100,4 +100,5 @@
 @debug get-color-contrast-ratio(#2269ca, white);
 @debug get-color-contrast-ratio(#2269ca, black);
 @debug get-color-contrast-ratio(#2269ca, blue);
-
+@debug is-wcag(#2269ca, white); // True!
+@debug is-wcag(#2269ca, white, AAA); // False. :(

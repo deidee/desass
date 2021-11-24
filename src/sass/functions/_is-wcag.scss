@@ -1,0 +1,49 @@
+
+/*
+Ratios:
+
+AA text
+4.5:1
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+AA large text
+3:1
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+AA non-text
+3:1
+https://www.w3.org/TR/WCAG21/#non-text-contrast
+
+AAA text
+7:1
+https://www.w3.org/TR/WCAG21/#contrast-enhanced
+
+AAA large text
+4.5:1
+https://www.w3.org/TR/WCAG21/#contrast-enhanced
+
+incidental
+1:1 (no contrast; ergo, invisible)
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+logotype
+1:1 (no contrast; ergo, invisible)
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
+ */
+
+// TODO: Account for font size and weight, because it is relevant.
+@function is-wcag($foreground-color: #000, $background-color: #fff, $level: AA) {
+  $levels: (
+          A: 1, // Useless, because could mean invisible.
+          AA: 4.5, // Default, because useful.
+          AAA: 7
+  );
+
+  $target-ratio: map-get($levels, $level);
+
+  $ratio: get-color-contrast-ratio($foreground-color, $background-color);
+
+  @return $ratio >= $target-ratio;
+}

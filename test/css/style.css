@@ -1,3 +1,36 @@
+/*
+Ratios:
+
+AA text
+4.5:1
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+AA large text
+3:1
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+AA non-text
+3:1
+https://www.w3.org/TR/WCAG21/#non-text-contrast
+
+AAA text
+7:1
+https://www.w3.org/TR/WCAG21/#contrast-enhanced
+
+AAA large text
+4.5:1
+https://www.w3.org/TR/WCAG21/#contrast-enhanced
+
+incidental
+1:1 (no contrast; ergo, invisible)
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+logotype
+1:1 (no contrast; ergo, invisible)
+https://www.w3.org/TR/WCAG21/#contrast-minimum
+
+Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
+ */
 .col-right, .col-half, .col-2of4, .col-1of2 {
   flex: 0 0 auto;
   width: 50%;

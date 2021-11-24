@@ -29,3 +29,11 @@ Produceert de volgende output:
   width: 75%;
 }
 ```
+
+## Publiceren
+
+Publiceren wordt gedaan door deIdee en wel op de volgende manier:
+
+```shell
+npm publish --access public
+```
