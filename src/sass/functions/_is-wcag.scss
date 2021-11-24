@@ -47,3 +47,11 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 
   @return $ratio >= $target-ratio;
 }
+
+@function is-wcag-aa($foreground-color: #000, $background-color: #fff) {
+  @return is-wcag($foreground-color, $background-color, AA);
+}
+
+@function is-wcag-aaa($foreground-color: #000, $background-color: #fff) {
+  @return is-wcag($foreground-color, $background-color, AAA);
+}
