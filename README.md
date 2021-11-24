@@ -32,7 +32,7 @@ Produceert de volgende output:
 
 ## Toegankelijkheidscontroles
 
-deSass kan de contrastratio tussen twee kleuren (bijvoorbeeld een tekstkleur en een achtergrondkleur) bepalen en vervolgens toetsen of deze aan de richtlijnen van [WCAG 2.1](https://www.w3.org/TR/WCAG21/) voldoen.
+deSass kan de contrastratio tussen twee kleuren (bijvoorbeeld een tekstkleur en een achtergrondkleur) berekenen en vervolgens toetsen of deze aan de richtlijnen van [WCAG 2.1](https://www.w3.org/TR/WCAG21/) (niveau AA of AAA) voldoet.
 
 ```scss
 @debug get-color-luminance(#2269ca); // 0.1470749981
@@ -44,6 +44,12 @@ deSass kan de contrastratio tussen twee kleuren (bijvoorbeeld een tekstkleur en 
 ```
 
 _Sinds v0.2_
+
+## Installatie
+
+```shell
+npm install --save-dev @deidee/desass
+```
 
 ## Publiceren
 
