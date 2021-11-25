@@ -1,4 +1,8 @@
 
 @function inline-svg($string) {
-  @return url('data:image/svg+xml,#{url-encode($string)}');
+  @return url(inline-svg-url($string));
+}
+
+@function inline-svg-url($string) {
+  @return 'data:image/svg+xml,#{url-encode($string)}';
 }

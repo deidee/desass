@@ -34,12 +34,20 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
  */
 
 // TODO: Account for font size and weight, because it is relevant.
-@function is-wcag($foreground-color: #000, $background-color: #fff, $level: AA) {
+@function is-wcag($foreground-color: #000, $background-color: #fff, $level: AA, $font-size: 16px) {
   $levels: (
           A: 1, // Useless, because could mean invisible.
           AA: 4.5, // Default, because useful.
           AAA: 7
   );
+
+  @if $font-size >= 24px {
+    $levels: (
+            A: 1,
+            AA: 3,
+            AAA: 4.5
+    );
+  }
 
   $target-ratio: map-get($levels, $level);
 
@@ -48,10 +56,10 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
   @return $ratio >= $target-ratio;
 }
 
-@function is-wcag-aa($foreground-color: #000, $background-color: #fff) {
-  @return is-wcag($foreground-color, $background-color, AA);
+@function is-wcag-aa($foreground-color: #000, $background-color: #fff, $font-size: 16px) {
+  @return is-wcag($foreground-color, $background-color, AA, $font-size: 16px);
 }
 
-@function is-wcag-aaa($foreground-color: #000, $background-color: #fff) {
-  @return is-wcag($foreground-color, $background-color, AAA);
+@function is-wcag-aaa($foreground-color: #000, $background-color: #fff, $font-size: 16px) {
+  @return is-wcag($foreground-color, $background-color, AAA, $font-size);
 }
