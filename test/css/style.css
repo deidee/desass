@@ -95,6 +95,16 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
   transition-property: background-color, color, transform;
 }
 
+.golden-ratio-a {
+  flex: 0 0 auto;
+  width: 61.803398875%;
+}
+
+.golden-ratio-b {
+  flex: 0 0 auto;
+  width: 38.196601125%;
+}
+
 .row {
   display: flex;
   flex-direction: row;
