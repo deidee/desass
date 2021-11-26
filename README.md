@@ -47,7 +47,7 @@ _Sinds v0.2_
 
 ## SVG als achtergrondafbeelding
 
-Stel je hebt de volgende, eenvoudige hamburger:
+Stel je hebt de volgende, [eenvoudige hamburger](https://gist.github.com/acjbizar/7f1f1858a661029ea027bdeaea013944):
 
 ```svg
 <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
