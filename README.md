@@ -45,6 +45,45 @@ deSass kan de contrastratio tussen twee kleuren (bijvoorbeeld een tekstkleur en 
 
 _Sinds v0.2_
 
+## SVG als achtergrondafbeelding
+
+Stel je hebt de volgende, eenvoudige hamburger:
+
+```svg
+<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="4"/>
+    <rect y="8" width="100%" height="4"/>
+    <rect y="16" width="100%" height="4"/>
+</svg>
+```
+
+Met deSass kun je deze in je stylesheet gebruiken zonder de afbeelding apart te hoeven hosten en wel op de volgende manier:
+
+```scss
+.hamburger {
+  background-image: inline-svg('<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="4"/><rect y="8" width="100%" height="4"/><rect y="16" width="100%" height="4"/></svg>');
+}
+```
+
+Je kunt de XML op deze manier dus direct in de Sass plaatsen.
+
+Op deze manier kun je zelfs je Sass-variabelen (of andere Sass-functies) gebruiken in je SVG. Voorbeeld:
+
+```scss
+$hamburger-color: #2269ca;
+
+.hamburger {
+  background-image: inline-svg('<svg fill="#{$hamburger-color}" width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="4"/><rect y="8" width="100%" height="4"/><rect y="16" width="100%" height="4"/></svg>');
+}
+```
+Als je de data-URI, om wat voor reden dan ook, los wilt hebben kan dat ook:
+
+```scss
+$hamburger-image: inline-svg-url('<svg fill="#{$hamburger-color}" width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="4"/><rect y="8" width="100%" height="4"/><rect y="16" width="100%" height="4"/></svg>');
+```
+
+Let op: deze techniek is niet aangeraden bij complexe SVG en niet bruikbaar als individuele onderdelen geanimeerd moeten worden.
+
 ## Installatie
 
 ```shell
