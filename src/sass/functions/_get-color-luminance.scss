@@ -1,5 +1,6 @@
 // Based off comment on https://css-tricks.com/snippets/sass/luminance-color-function/.
 
+@use 'sass:color';
 @use 'sass:math';
 
 // Returns the luminance of `$color` as a float (between 0 and 1)
@@ -10,9 +11,9 @@
 // Source: https://www.w3.org/TR/WCAG20-TECHS/G17.html
 @function get-color-luminance($color) {
   $colors: (
-          'red': red($color),
-          'green': green($color),
-          'blue': blue($color)
+          'red': color.red($color),
+          'green': color.green($color),
+          'blue': color.blue($color)
   );
 
   @each $name, $value in $colors {
