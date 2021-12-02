@@ -2,9 +2,7 @@
 
 var gulp = require('gulp');
 var pipeline = require('readable-stream').pipeline;
-let sass = require('gulp-sass')(require('node-sass'));
-
-sass.compiler = require('sass');
+let sass = require('gulp-sass')(require('sass'));
 
 gulp.task('sass', function () {
     return gulp.src('./src/sass/**/*.scss')
