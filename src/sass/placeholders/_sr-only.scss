@@ -1,0 +1,17 @@
+
+// Hide visually, but not for screen readers.
+// Source: https://webaim.org/techniques/css/invisiblecontent/
+%sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/*
+Use these techniques judiciously! Keep in mind that many screen reader users have some vision—what they see and what they hear should typically be in harmony. In general, screen reader-only content should be reserved for information is apparent visually but not apparent to blind screen reader users.
+*/
