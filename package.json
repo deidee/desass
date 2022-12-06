@@ -1,6 +1,6 @@
 {
   "name": "@deidee/desass",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Sass helper functions and mixins.",
   "main": "index.js",
   "scripts": {
@@ -19,11 +19,9 @@
     "url": "https://github.com/deidee/desass/issues"
   },
   "homepage": "https://github.com/deidee/desass#readme",
-  "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-sass": "^5.0.0"
-  },
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "sass": "^1.42.1"
   }
 }

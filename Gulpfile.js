@@ -1,8 +1,8 @@
 'use strict';
 
-var gulp = require('gulp');
-var pipeline = require('readable-stream').pipeline;
-let sass = require('gulp-sass')(require('sass'));
+const gulp = require('gulp');
+const pipeline = require('readable-stream').pipeline;
+const sass = require('gulp-sass')(require('sass'));
 
 gulp.task('sass', function () {
     return gulp.src('./src/sass/**/*.scss')
