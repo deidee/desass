@@ -1,6 +1,6 @@
 {
   "name": "@deidee/desass",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Sass helper functions and mixins.",
   "main": "index.js",
   "scripts": {
