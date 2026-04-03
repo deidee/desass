@@ -1,10 +1,4 @@
 
-@import "../../src/sass/functions";
+@use "../../src/sass/style";
 
-@import "../../src/sass/variables";
-
-@import "../../src/sass/mixins";
-
-@import "../../src/sass/test";
-
-@import "../../src/sass/placeholders/row";
+@use "../../src/sass/test";

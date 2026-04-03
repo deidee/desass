@@ -1,7 +1,7 @@
 
-@use "functions";
-@use "variables";
-@use "mixins";
-@use "placeholders";
+@forward "functions";
+@forward "variables";
+@forward "mixins";
+@forward "placeholders";
 //@import "test";
 //@include reset();
