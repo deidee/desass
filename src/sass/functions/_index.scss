@@ -1,10 +1,10 @@
 
-@import "get-color-contrast-ratio";
-@import "get-color-luminance";
-@import "implode";
-@import "inline-svg";
-@import "is-wcag";
-@import "rem";
-@import "str-replace";
-@import "strip-unit";
-@import "url-encode";
+@use "get-color-contrast-ratio";
+@use "get-color-luminance";
+@use "implode";
+@use "inline-svg";
+@use "is-wcag";
+@use "rem";
+@use "str-replace";
+@use "strip-unit";
+@use "url-encode";

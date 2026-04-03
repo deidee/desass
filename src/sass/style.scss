@@ -1,12 +1,7 @@
 
-@import "functions";
-
-@import "variables";
-
-@import "mixins";
-
-@import "placeholders";
-
+@use "functions";
+@use "variables";
+@use "mixins";
+@use "placeholders";
 //@import "test";
-
 //@include reset();

@@ -1,5 +1,6 @@
 
-@import "mixins/breakpoints";
-@import "mixins/column";
-@import "mixins/offset";
-@import "mixins/reset";
+@use "mixins/breakpoints";
+@use "mixins/column";
+@use "mixins/foundation";
+@use "mixins/offset";
+@use "mixins/reset";

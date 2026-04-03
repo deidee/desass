@@ -1,0 +1,98 @@
+
+@use "sass:map";
+
+// -----------------------------------------------------------------------------
+// Foundation
+// -----------------------------------------------------------------------------
+
+$foundation-universal: (
+        border: 0,
+        border-radius: 0,
+        box-sizing: border-box,
+        list-style: none,
+        margin: 0,
+        outline: 0,
+        padding: 0,
+        text-decoration: none
+) !default;
+
+$foundation-guarded: (
+        color: (attr: color, value: inherit),
+        direction: (attr: dir, value: inherit),
+
+        font-family: (attr: font-family, value: inherit),
+        font-size: (attr: font-size, value: 1em),
+        font-style: (attr: font-style, value: inherit),
+        font-variant: (attr: font-variant, value: inherit),
+        font-weight: (attr: font-weight, value: inherit),
+
+        letter-spacing: (attr: letter-spacing, value: inherit),
+        line-height: (attr: line-height, value: inherit),
+        text-align: (attr: text-align, value: inherit),
+        text-transform: (attr: text-transform, value: inherit),
+        white-space: (attr: white-space, value: inherit),
+        word-spacing: (attr: word-spacing, value: inherit)
+) !default;
+
+$foundation-guarded-optional: () !default;
+
+$foundation-escape-selector: '[data-native]' !default;
+
+// -----------------------------------------------------------------------------
+// Private helpers
+// -----------------------------------------------------------------------------
+
+@mixin -foundation-guarded($property, $attribute, $value) {
+  :where(
+    *:not([#{$attribute}]),
+    *:not([#{$attribute}])::before,
+    *:not([#{$attribute}])::after
+  ) {
+    #{$property}: #{$value};
+  }
+}
+
+@mixin -foundation-escape($selector) {
+  :where(
+    #{$selector},
+    #{$selector}::before,
+    #{$selector}::after,
+    #{$selector} *,
+    #{$selector} *::before,
+    #{$selector} *::after
+  ) {
+    all: revert;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Public mixin
+// -----------------------------------------------------------------------------
+
+@mixin foundation() {
+  :where(*, *::before, *::after) {
+    @each $property, $value in $foundation-universal {
+      #{$property}: $value;
+    }
+  }
+
+  @each $property, $config in $foundation-guarded {
+    @include -foundation-guarded(
+            $property,
+            map.get($config, attr),
+            map.get($config, value)
+    );
+  }
+
+  @each $property, $config in $foundation-guarded-optional {
+    @include -foundation-guarded(
+            $property,
+            map.get($config, attr),
+            map.get($config, value)
+    );
+  }
+
+  @if $foundation-escape-selector != null {
+    @include -foundation-escape($foundation-escape-selector);
+  }
+}
