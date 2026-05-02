@@ -1,6 +1,7 @@
 // Based off comment on https://css-tricks.com/snippets/sass/luminance-color-function/.
 
 @use 'sass:color';
+@use "sass:map";
 @use 'sass:math';
 
 // Returns the luminance of `$color` as a float (between 0 and 1)
@@ -25,8 +26,8 @@
       $value: math.div(($value + .055), 1.055);
       $value: math.pow($value, 2.4);
     }
-    $colors: map-merge($colors, ($name: $value));
+    $colors: map.merge($colors, ($name: $value));
   }
 
-  @return (map-get($colors, 'red') * 0.2126) + (map-get($colors, 'green') * .7152) + (map-get($colors, 'blue') * .0722);
+  @return (map.get($colors, 'red') * 0.2126) + (map.get($colors, 'green') * .7152) + (map.get($colors, 'blue') * .0722);
 }

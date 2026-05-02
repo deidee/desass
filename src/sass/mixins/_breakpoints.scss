@@ -8,9 +8,9 @@
 // (We don't necessarily believe mobile-first *design* is always the way to go,
 // but mobile-first CSS is definitely a good idea.)
 @mixin breakpoint-up($name, $breakpoints: $de-breakpoints) {
-  $min: map-get($breakpoints, $name);
+  $min: map.get($breakpoints, $name);
 
-  @if map-get($breakpoints, $name) {
+  @if map.get($breakpoints, $name) {
     @media (min-width: $min) {
       @content;
     }

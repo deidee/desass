@@ -1,4 +1,5 @@
 
+@use "sass:map";
 
 /// Ratios:
 ///
@@ -49,7 +50,7 @@
     );
   }
 
-  $target-ratio: map-get($levels, $level);
+  $target-ratio: map.get($levels, $level);
 
   $ratio: get-color-contrast-ratio($foreground-color, $background-color);
 
